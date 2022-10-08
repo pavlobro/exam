@@ -1,0 +1,39 @@
+
+import unittest
+from test import *
+
+
+def adder(*args, **kwargs):
+    result = 0
+    for _ in args:
+        result += _
+    for _ in kwargs.values():
+        result += _
+    return result
+
+class my_test(unittest.TestCase):
+
+    def test_args(self):
+        self.assertEqual(adder(2,2),4)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+    def adder(*args, **kwargs):
+        result = 0
+        for _ in args:
+            result += _
+        for _ in kwargs.values():
+            result += _
+        return result
+
+class Helper:
+    def __init__(self, work):
+        self.work = work
+    def __call__(self, work):
+        return f"I help you soplyak with {self.work}. after that we do {work}"
+
+helper = Helper("homework")
+print(helper("clean toilet"))
